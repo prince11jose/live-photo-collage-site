@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Live Photo Collage</title>
+<meta name="description" content="Privacy policy for the Live Photo Collage open-source project and this landing page.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%B7%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #1a0e0a;
+    --bg2: #2a1510;
+    --card: rgba(255, 255, 255, 0.055);
+    --card-edge: rgba(255, 255, 255, 0.12);
+    --ink: #fbf1ea;
+    --ink-dim: #d8b9a8;
+    --amber: #f5a524;
+    --rose: #fb7185;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1;
+    background:
+      radial-gradient(1000px 700px at 10% 0%, rgba(245, 165, 36, 0.2), transparent 55%),
+      linear-gradient(180deg, var(--bg2), var(--bg) 40%);
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 22px 70px; }
+  header.site { display: flex; align-items: center; justify-content: space-between; padding: 20px 0 40px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; color: var(--ink); }
+  .logo .dot {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--amber), var(--rose));
+    display: grid; place-items: center; font-size: 1rem;
+  }
+  header.site a.back { color: var(--ink-dim); text-decoration: none; font-size: .92rem; }
+  header.site a.back:hover { color: var(--ink); }
+  h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); letter-spacing: -.02em; margin-bottom: 6px; }
+  .updated { color: var(--ink-dim); font-size: .9rem; margin-bottom: 34px; }
+  h2 { font-size: 1.25rem; margin: 38px 0 12px; letter-spacing: -.01em; }
+  p, li { color: var(--ink-dim); font-size: .97rem; }
+  p { margin-bottom: 14px; }
+  strong { color: var(--ink); }
+  ul { padding-left: 22px; margin-bottom: 14px; }
+  li { margin-bottom: 8px; }
+  a { color: var(--amber); }
+  code {
+    background: var(--card); border: 1px solid var(--card-edge);
+    border-radius: 4px; padding: 1px 5px; font-size: .9em;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <a class="logo" href="index.html"><span class="dot">📷</span> Live Photo Collage</a>
+    <a class="back" href="index.html">← Back to site</a>
+  </header>
+
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 2026-08-10</p>
+
+  <p><strong>Live Photo Collage</strong> is open-source, self-hosted software — not a service run
+  by its developer. This page (a static landing page at this GitHub Pages address) collects
+  nothing at all; it has no analytics, no cookies, and no forms. This policy instead explains
+  what the <em>software</em> does with data, once someone deploys and runs their own instance
+  of it.</p>
+
+  <h2>There is no hosted service</h2>
+  <p>The developer does not operate a public instance of Live Photo Collage and does not receive,
+  store, or process any photos, account information, or other data on anyone's behalf. Anyone who
+  wants to use the app deploys their own instance — on their own server, container, or Kubernetes
+  cluster — using their own Google OAuth client. That deployer is the operator of their instance
+  and is responsible for it, including for complying with any privacy laws that apply to their
+  use of it.</p>
+
+  <h2>What a running instance stores, and where</h2>
+  <p>All of the following stays on the infrastructure the operator deploys the app to. None of it
+  is sent to the developer of this project or to any third party other than Google, for sign-in.</p>
+  <ul>
+    <li><strong>Google account info</strong> — when someone signs in, the app reads their Google
+    profile (name, email, profile picture) via Google Sign-In to create or look up their board.</li>
+    <li><strong>Phone number (optional)</strong> — a signed-in user may add a phone number to their
+    own profile; it's stored alongside their account and is never required.</li>
+    <li><strong>Uploaded photos</strong> — stored on the instance's local disk, date-partitioned,
+    with ownership of each photo tracked in a local SQLite database. Guests upload without
+    signing in; only the board's owner (and any admin the operator configures) can view, download,
+    or delete them.</li>
+  </ul>
+
+  <h2>What the software does NOT do</h2>
+  <ul>
+    <li>It does not include any advertising SDK, analytics SDK, or third-party tracker.</li>
+    <li>It does not share photos, profile data, or phone numbers between boards — each board is
+    only ever visible to its owner and the operator's configured admins.</li>
+    <li>Guests uploading via a QR code are never asked to sign in, and no personal data is
+    collected from them beyond the photo file itself.</li>
+  </ul>
+
+  <h2>Google Sign-In</h2>
+  <p>Sign-in uses Google's own Sign-In flow. Google's handling of the credentials involved is
+  governed by <a href="https://policies.google.com/privacy">Google's privacy policy</a>, not by
+  this project.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes, the updated version will be posted at this same location with a new
+  "Last updated" date.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this project can be raised via its
+  <a href="https://github.com/prince11jose/live_photo_collage/issues">issue tracker</a>. For
+  questions about a specific deployment's handling of your data, contact whoever operates that
+  instance.</p>
+</div>
+</body>
+</html>

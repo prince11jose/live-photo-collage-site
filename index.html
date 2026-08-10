@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Live Photo Collage — a live photo wall for your event</title>
-<meta name="description" content="Guests scan a QR code and upload straight from their phone — no app, no login. Photos develop into a live wall in real time. Self-hosted, open source, private per-user boards.">
+<meta name="description" content="Guests scan a QR code and upload straight from their phone — no app, no login. Photos develop into a live wall in real time, private to your own board.">
 <meta property="og:title" content="Live Photo Collage">
-<meta property="og:description" content="Scan. Upload. Watch it develop on the wall — live. A self-hosted, private photo wall for events.">
+<meta property="og:description" content="Scan. Upload. Watch it develop on the wall — live. A private photo wall for your event.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%B7%3C/text%3E%3C/svg%3E">
 <style>
@@ -144,19 +144,6 @@
   }
   .step h3 { padding-left: 0; }
 
-  .edition { display: flex; flex-direction: column; }
-  .edition .tag {
-    align-self: flex-start; font-size: .74rem; font-weight: 700; letter-spacing: .06em;
-    text-transform: uppercase; padding: 4px 11px; border-radius: 999px; margin-bottom: 14px;
-  }
-  .tag.free  { background: rgba(245, 165, 36, .16); color: var(--amber); border: 1px solid rgba(245, 165, 36, .35); }
-  .tag.paid  { background: rgba(251, 113, 133, .18); color: #fda4af; border: 1px solid rgba(251, 113, 133, .4); }
-  .tag.plain { background: var(--card); color: var(--ink-dim); border: 1px solid var(--card-edge); }
-  .edition ul { list-style: none; margin-top: 10px; }
-  .edition li { color: var(--ink-dim); font-size: .92rem; padding: 4px 0 4px 24px; position: relative; }
-  .edition li::before { content: "✓"; position: absolute; left: 2px; color: var(--amber); font-weight: 700; }
-  .edition li.minus::before { content: "–"; color: var(--ink-dim); }
-
   .honest { border-left: 3px solid var(--rose-deep); }
   details {
     background: var(--card); border: 1px solid var(--card-edge);
@@ -164,13 +151,6 @@
   }
   details summary { cursor: pointer; font-weight: 600; font-size: .97rem; }
   details p { color: var(--ink-dim); font-size: .93rem; margin-top: 10px; }
-
-  .tech-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-  .chip {
-    font-size: .84rem; color: var(--ink-dim);
-    background: var(--card); border: 1px solid var(--card-edge);
-    padding: 6px 14px; border-radius: 999px;
-  }
 
   footer {
     margin-top: 80px; padding: 34px 0 44px;
@@ -191,7 +171,6 @@
     <nav class="top">
       <a href="#how">How it works</a>
       <a href="#features">Features</a>
-      <a href="#tech">Under the hood</a>
       <a href="#faq">FAQ</a>
       <a href="privacy.html">Privacy</a>
     </nav>
@@ -205,10 +184,9 @@
       (and your admins) can ever see, download, or clear it.
     </p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="https://github.com/prince11jose/live_photo_collage">⭐ View on GitHub</a>
-      <a class="btn btn-ghost" href="https://github.com/prince11jose/live_photo_collage#deploying-to-kubernetes">Deployment guide</a>
+      <a class="btn btn-primary" href="https://photowall.princejose.dev">📷 Open Live Photo Collage</a>
     </div>
-    <p class="cta-note">Self-hosted &amp; open source · Flask + React + Socket.IO · Google Sign-In · Docker / Kubernetes</p>
+    <p class="cta-note">Sign in with Google to get your board · guests need nothing but a phone</p>
 
     <div class="sync-strip" aria-hidden="true">
       <div class="device">📱 Guest scans QR</div>
@@ -232,7 +210,7 @@
       </div>
       <div class="card step">
         <h3>Photos develop, live</h3>
-        <p>Every upload pushes instantly to the wall over Socket.IO. Project it on a big screen and watch the collage fill up as the event happens.</p>
+        <p>Every upload appears on the wall instantly. Project it on a big screen and watch the collage fill up as the event happens.</p>
       </div>
     </div>
   </section>
@@ -251,7 +229,7 @@
       </div>
       <div class="card">
         <h3><span class="icon">⚡</span> Real-time wall</h3>
-        <p>Socket.IO pushes each new photo into its owner's board the moment it's uploaded — no refreshing, no polling, just photos developing into view.</p>
+        <p>Each new photo lands on its owner's board the moment it's uploaded — no refreshing, no polling, just photos developing into view.</p>
       </div>
       <div class="card">
         <h3><span class="icon">🗂️</span> Download or clear anytime</h3>
@@ -262,19 +240,15 @@
         <p>Designated admin emails get a directory of every registered board and inherit any legacy photos on first sign-in — handy for running the app for a wider organization.</p>
       </div>
       <div class="card">
-        <h3><span class="icon">🏠</span> Self-hosted, open source</h3>
-        <p>No hosted service, no vendor lock-in, no one else's server holding your event's photos. Clone it, point it at your own Google OAuth client, and run it on your own infrastructure.</p>
+        <h3><span class="icon">🖥️</span> Big-screen ready</h3>
+        <p>Project your board on a TV or projector at the venue and let it run — the wall keeps filling up live as guests keep scanning and uploading.</p>
       </div>
     </div>
   </section>
 
   <section id="faq">
     <h2>Honest answers</h2>
-    <p class="lead">This is self-hosted software, not a SaaS product — here's what that actually means.</p>
-    <details class="honest">
-      <summary>Is there a hosted version I can just sign up for?</summary>
-      <p>No — Live Photo Collage isn't run as a service by anyone. You (or whoever deploys it) run your own instance, with your own Google OAuth client and your own storage. See the <a href="https://github.com/prince11jose/live_photo_collage#google-sign-in-required">setup guide</a> for what that involves.</p>
-    </details>
+    <p class="lead">A few things worth knowing upfront.</p>
     <details class="honest">
       <summary>Can guests see photos uploaded to other boards?</summary>
       <p>No. Uploads are only ever accepted into the board named by the QR code a guest scanned, and only that board's owner (or an admin) can ever view, download, or clear it.</p>
@@ -284,28 +258,13 @@
       <p>No. Uploading works from any phone's browser via the camera or photo picker — nothing to install, nothing to sign into.</p>
     </details>
     <details class="honest">
-      <summary>Where do the photos actually live?</summary>
-      <p>Wherever you deploy it. Photos are stored on local disk (date-partitioned) with ownership tracked in a SQLite database — on whatever server, container, or Kubernetes cluster you run the app on.</p>
+      <summary>Do I need a new board for every event?</summary>
+      <p>No. Sign in once and your board and QR code stay the same — clear it whenever you want to start fresh for the next event.</p>
     </details>
     <details class="honest">
       <summary>Why does it require Google Sign-In?</summary>
       <p>Boards are owned by accounts, so a sign-in is what makes a board "yours" and keeps it private from everyone else. Guests uploading via QR code never need to sign in at all.</p>
     </details>
-  </section>
-
-  <section id="tech">
-    <h2>Under the hood</h2>
-    <p class="lead">Open development on GitHub. A Flask + Socket.IO backend, a React frontend, and manifests to run it anywhere.</p>
-    <div class="tech-chips">
-      <span class="chip">Flask</span>
-      <span class="chip">Socket.IO</span>
-      <span class="chip">React</span>
-      <span class="chip">SQLite</span>
-      <span class="chip">Google Sign-In</span>
-      <span class="chip">Docker</span>
-      <span class="chip">Kubernetes</span>
-      <span class="chip">QR code uploads</span>
-    </div>
   </section>
 </div>
 
